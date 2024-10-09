@@ -68,13 +68,86 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	
 
 	
+
+	<action name="actioner" type="Javascript" autorun="onload"><![CDATA[
+		function transformSceneString(sceneString) {
+			
+			let modifiedString = sceneString.replace(/^scene_/, '');
+			
+			
+			modifiedString = modifiedString.split('_').map((part, index) => {
+				// Capitalize the first letter of each part, except for the first part
+				if (index === 0) {
+					return part; // Keep the first part as is
+				}
+				return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+			}).join('_');
+
+			// Append '.tiles' at the end
+			return modifiedString + '.tiles';
+		}
+
+		console.log(krpano);
+		for(let i=krpano.hotspot.count-1;i>0;i--) {
+			const hotspotitem=krpano.hotspot.getItem(i);
+			
+			
+
+				if(hotspotitem.name.startsWith("spot")){
+					var linkedscene = transformSceneString(hotspotitem.linkedscene);
+
+					console.log("linked",linkedscene)
+
+					var name = "image" + hotspotitem.name;
+					const newimageitem  = krpano.addhotspot(name );
+					newimageitem.loadstyle("skin_hotspotstyles");
+					newimageitem.setvars({
+						keep:false, 
+						yoffset:0,
+						atv: hotspotitem.atv -10,
+						ath: hotspotitem.ath,
+						renderer: "css3d",
+						onloaded: "set_css_style('border-radius', '50%', 'background-color', 'pink');" ,
+						alpha: 0,
+						url : `panos/${linkedscene}/thumb.jpg`,
+					});
+
+					hotspotitem.setvars({
+						 onhover: `addimage(${name})`,
+						 onout: `removeimage(${name})`
+					});
+				}
+			}
+		console.log(krpano.hotspot.getArray());
+		
+
+	
+		]]></action>
+
+	<action scope="local" name="addimage" args ="test">
+	
+		 
+		tween(hotspot[get(test)].alpha, 1);
+		
+		
+		
+		
+	  </action>
+	  <action scope="local" name="removeimage" args="test">
+		tween(hotspot[get(test)].alpha, 0);
+
+	  </action>
+	  <action name="set_css_style" type="Javascript">
+		caller.sprite.style[ args[1] ] = args[2];
+		caller.sprite.style[ args[3] ] = args[4];
+	  </action>
+	  
 	<scene name="scene_01-2_Pano_G1_Reconstructed_B2" title="01-2 Pano G1 Reconstructed B2" onstart="" thumburl="panos/01-2_Pano_G1_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
-
+		
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/01-2_Pano_G1_Reconstructed_B2.tiles/preview.jpg" />
@@ -83,8 +156,12 @@
 			<cube url="panos/01-2_Pano_G1_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-125.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="107.343" atv="5.851" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
+
+		
+
+		<hotspot name="spot1"  atest="good" style="skin_hotspotstyle" ath="-125.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
+		<hotspot name="spot3" atest="good" style="skin_hotspotstyle" ath="107.343" atv="8.851" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" onhover="addimage('spot2')" onout="removeimage('spot2')"/>
+		
 
 	</scene>
 
