@@ -68,8 +68,8 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	<!-- autorun="onload" -->
-	<action name="actioner" type="Javascript" ><![CDATA[
+	<!-- -->
+	<action name="actioner" type="Javascript"  autorun="onload"><![CDATA[
 		function transformSceneString(sceneString) {
 			
 			let modifiedString = sceneString.replace(/^scene_/, '');
