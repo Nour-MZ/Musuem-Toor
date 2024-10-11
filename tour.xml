@@ -68,8 +68,8 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	<!-- autorun="onload" -->
-	<action name="actioner" type="Javascript" ><![CDATA[
+	<!--  -->
+	<action name="actioner" type="Javascript" autorun="onload" ><![CDATA[
 		function transformSceneString(sceneString) {
 			
 			let modifiedString = sceneString.replace(/^scene_/, '');
@@ -733,7 +733,7 @@
 			<cube url="panos/36-1_Pano_G10_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle_left" ath="166.124" atv="10.282" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="465.36,11.43,160.7" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="166.124" atv="10.282" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="465.36,11.43,160.7" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="14.867" atv="1.134" linkedscene="scene_37-1_pano_g11_reconstructed_b2" linkedscene_lookat="2.8,20.27,149.21" />
 
 	</scene>
