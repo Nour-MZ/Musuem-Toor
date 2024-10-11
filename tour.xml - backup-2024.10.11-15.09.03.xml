@@ -409,8 +409,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="-40.366" atv="10.587" linkedscene="scene_15-1_pano_g5_reconstructed" linkedscene_lookat="124.73,2.08,165.22" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.010" atv="21.377" linkedscene="scene_17-1_pano_g5_reconstructed" linkedscene_lookat="88.62,14.73,170.55" />
-		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.107" atv="19.419" linkedscene="scene_17-1_pano_g5_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
 
 	</scene>
 
