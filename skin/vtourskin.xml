@@ -278,7 +278,7 @@
 		
 		</style>
 	</cssstyles>
-	<style name="skin_hotspotstyle" url="up.svg" edge="top" distorted="true"
+	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="true"
 	       tooltip=""
 	       linkedscene=""
 	       linkedscene_lookat=""
@@ -286,9 +286,9 @@
 	       use3dtransition="false"
 	       onclick="skin_hotspotstyle_click();"
 	       depth="1000"
-	       scale="0.1"
-	       onover.addevent="tween(scale,0.11);"
-	       onout.addevent="tween(scale,0.1);"
+	       scale="0.5"
+	       onover.addevent="tween(scale,0.55);"
+	       onout.addevent="tween(scale,0.5);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
 	       />
 
