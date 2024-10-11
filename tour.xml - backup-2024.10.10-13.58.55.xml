@@ -189,8 +189,7 @@
 		
 
 		<hotspot name="spot1"  atest="good" style="skin_hotspotstyle" ath="-125.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.691" atv="6.205" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_lookat="138.96,11.25,164.81" />
-		
+		<hotspot name="spot3" atest="good" style="skin_hotspotstyle" ath="107.343" atv="8.851" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" onhover="addimage('spot2')" onout="removeimage('spot2')"/>
 		
 
 	</scene>

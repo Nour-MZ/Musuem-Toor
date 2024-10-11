@@ -1,4 +1,4 @@
-﻿<krpano version="1.21" title="Virtual Tour" >
+﻿<krpano version="1.21" title="Virtual Tour">
 
 	<include url="skin/vtourskin.xml" />
 
@@ -14,7 +14,7 @@
 	               webvr="true"
 	               webvr_keeplookingdirection="true"
 	               webvr_prev_next_hotspots="true"
-	               autotour="true"
+	               autotour="false"
 	               littleplanetintro="false"
 	               followmousecontrol="false"
 	               title="true"
@@ -68,76 +68,8 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	 
-	<action name="actioner" type="Javascript" autorun="onload"><![CDATA[
-		function transformSceneString(sceneString) {
-			
-			let modifiedString = sceneString.replace(/^scene_/, '');
-			
-			
-			modifiedString = modifiedString.split('_').map((part, index) => {
-				// Capitalize the first letter of each part, except for the first part
-				if (index === 0) {
-					return part; // Keep the first part as is
-				}
-				return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-			}).join('_');
-
-			// Append '.tiles' at the end
-			return modifiedString + '.tiles';
-		}
-
-		console.log(krpano);
-		for(let i=krpano.hotspot.count-1;i>0;i--) {
-			const hotspotitem=krpano.hotspot.getItem(i);
-			
-			
-
-				if(hotspotitem.name.startsWith("spot")){
-					var linkedscene = transformSceneString(hotspotitem.linkedscene);
-
-					console.log("linked",linkedscene)
-
-					var name = "image" + hotspotitem.name;
-					const newimageitem  = krpano.addhotspot(name );
-					newimageitem.loadstyle("skin_hotspotstyles");
-					newimageitem.setvars({
-						keep:false, 
-						yoffset:0,
-						atv: hotspotitem.atv -10,
-						ath: hotspotitem.ath,
-						renderer: "css3d",
-						onloaded: "set_css_style('border-radius', '50%', 'background-color', 'pink');" ,
-						alpha: 0,
-						url : `panos/${linkedscene}/thumb.jpg`,
-					});
-
-					hotspotitem.setvars({
-						 onhover: `addimage(${name})`,
-						 onout: `removeimage(${name})`
-					});
-				}
-			}
-		console.log(krpano.hotspot.getArray());
-		
 
 	
-		]]></action>
-
-	<action name="setuptour">
-		set(idletime,3);
-		set(events.onidle, autotour());
-	</action>
-
-	<action name="autotour">
-		
-		
-		
-		
-
-		
-		
-	</action>
 
 	<action scope="local" name="addimage" args ="test">
 	
@@ -157,27 +89,11 @@
 		caller.sprite.style[ args[3] ] = args[4];
 	  </action>
 	  
-	  <scene name="scene_38-1_Pano_Entrance_Reconstructed" title="38-1 Pano Entrance Reconstructed" onstart="" thumburl="panos/38-1_Pano_Entrance_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="-263.394" vlookat="28.467" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/38-1_Pano_Entrance_Reconstructed.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/38-1_Pano_Entrance_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
-		</image>
-
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="114.260" atv="4.303" linkedscene="scene_01-2_pano_g1_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-
-	</scene>
-
 	<scene name="scene_01-2_Pano_G1_Reconstructed_B2" title="01-2 Pano G1 Reconstructed B2" onstart="" thumburl="panos/01-2_Pano_G1_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 		
-		<view hlookat="42.913" vlookat="1.319" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/01-2_Pano_G1_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -189,9 +105,22 @@
 		
 
 		<hotspot name="spot1"  atest="good" style="skin_hotspotstyle" ath="-125.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.691" atv="6.205" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_lookat="138.96,11.25,164.81" />
+		<hotspot name="spot3" atest="good" style="skin_hotspotstyle" ath="107.343" atv="8.851" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" onhover="addimage('spot2')" onout="removeimage('spot2')"/>
 		
+
+	</scene>
+
+	<scene name="scene_02-1_Pano_G1_Reconstructed" title="02-1 Pano G1 Reconstructed" onstart="" thumburl="panos/02-1_Pano_G1_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/02-1_Pano_G1_Reconstructed.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/02-1_Pano_G1_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+		</image>
 
 	</scene>
 
@@ -199,7 +128,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="138.962" vlookat="11.248" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/03-1_Pano_G2_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -208,22 +137,16 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="46.024" atv="2.976" linkedscene="scene_05-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-18.112" atv="7.964" linkedscene="scene_01-2_pano_g1_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-60.480" atv="6.980" linkedscene="scene_04-1_pano_g2_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot4" style="skin_hotspotstyle" ath="-14.245" atv="6.805" linkedscene="scene_01-2_pano_g1_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-		
 
 	</scene>
-
-	
-
-	
 
 	<scene name="scene_04-1_Pano_G2_Reconstructed" title="04-1 Pano G2 Reconstructed" onstart="" thumburl="panos/04-1_Pano_G2_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="15.640" vlookat="3.482" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/04-1_Pano_G2_Reconstructed.tiles/preview.jpg" />
 
@@ -239,7 +162,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-59.279" vlookat="9.962" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/05-1_Pano_G2_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -247,9 +170,8 @@
 			<cube url="panos/05-1_Pano_G2_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-56.042" atv="7.248" linkedscene="scene_06-1_pano_g3_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="112.398" atv="4.585" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-56.059" atv="8.018" linkedscene="scene_06-1_pano_g3_reconstructed" linkedscene_lookat="-246.82,5.33,120.0" />
 
 	</scene>
 
@@ -257,7 +179,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-256.885" vlookat="4.920" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/06-1_Pano_G3_Reconstructed.tiles/preview.jpg" />
 
@@ -266,8 +188,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-61.634" atv="9.889" linkedscene="scene_05-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="124.702" atv="8.910" linkedscene="scene_07-1_pano_g3_reconstructed_b2" linkedscene_lookat="-3.38,-1.05,158.81" />
-		
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="122.422" atv="6.511" linkedscene="scene_07-1_pano_g3_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
 
 	</scene>
 
@@ -275,7 +196,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="111.228" vlookat="14.001" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/07-1_Pano_G3_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -283,18 +204,30 @@
 			<cube url="panos/07-1_Pano_G3_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="123.855" atv="9.924" linkedscene="scene_06-1_pano_g3_reconstructed" linkedscene_lookat="294.95,4.98,140.95" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="88.133" atv="7.473" linkedscene="scene_09-1_pano_g3_reconstructed_b2" linkedscene_lookat="76.04,-5.34,165.01" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="123.855" atv="10.271" linkedscene="scene_06-1_pano_g3_reconstructed" linkedscene_lookat="294.95,4.98,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="88.133" atv="7.473" linkedscene="scene_09-1_pano_g3_reconstructed_b2" linkedscene_lookat="76.23,-8.1,120.0" />
 
 	</scene>
 
-	
+	<scene name="scene_08-1_Pano_G3_Reconstructed" title="08-1 Pano G3 Reconstructed" onstart="" thumburl="panos/08-1_Pano_G3_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/08-1_Pano_G3_Reconstructed.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/08-1_Pano_G3_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+		</image>
+
+	</scene>
 
 	<scene name="scene_09-1_Pano_G3_Reconstructed_b2" title="09-1 Pano G3 Reconstructed b2" onstart="" thumburl="panos/09-1_Pano_G3_Reconstructed_b2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="7.853" vlookat="7.249" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/09-1_Pano_G3_Reconstructed_b2.tiles/preview.jpg" />
 
@@ -302,8 +235,8 @@
 			<cube url="panos/09-1_Pano_G3_Reconstructed_b2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-97.112" atv="13.077" linkedscene="scene_07-1_pano_g3_reconstructed_b2" linkedscene_lookat="268.6,16.18,158.64" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="70.123" atv="5.565" linkedscene="scene_10-1_pano_g3_reconstructed" linkedscene_lookat="-57.52,21.3,149.41" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-97.112" atv="13.077" linkedscene="scene_07-1_pano_g3_reconstructed_b2" linkedscene_lookat="283.57,27.39,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="70.123" atv="5.565" linkedscene="scene_10-1_pano_g3_reconstructed" linkedscene_lookat="-52.5,20.18,120.0" />
 
 	</scene>
 
@@ -311,7 +244,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-59.692" vlookat="8.164" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/10-1_Pano_G3_Reconstructed.tiles/preview.jpg" />
 
@@ -319,8 +252,8 @@
 			<cube url="panos/10-1_Pano_G3_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="127.730" atv="8.630" linkedscene="scene_09-1_pano_g3_reconstructed_b2" linkedscene_lookat="-105.68,10.62,155.12" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-58.695" atv="14.487" linkedscene="scene_11-1_pano_g4_reconstructed" linkedscene_lookat="285.22,19.13,164.8" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="127.730" atv="8.630" linkedscene="scene_09-1_pano_g3_reconstructed_b2" linkedscene_lookat="-105.44,2.16,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-58.695" atv="14.487" linkedscene="scene_11-1_pano_g4_reconstructed" linkedscene_lookat="238.53,34.74,120.0" />
 
 	</scene>
 
@@ -328,7 +261,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="271.178" vlookat="13.134" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/11-1_Pano_G4_Reconstructed.tiles/preview.jpg" />
 
@@ -336,8 +269,8 @@
 			<cube url="panos/11-1_Pano_G4_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="176.235" atv="7.327" linkedscene="scene_12-1_pano_g4_reconstructed" linkedscene_lookat="70.97,12.49,156.02" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="90.217" atv="4.959" linkedscene="scene_10-1_pano_g3_reconstructed" linkedscene_lookat="129.14,13.72,161.04" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="176.235" atv="7.327" linkedscene="scene_12-1_pano_g4_reconstructed" linkedscene_lookat="8.12,12.91,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="90.217" atv="4.959" linkedscene="scene_10-1_pano_g3_reconstructed" linkedscene_lookat="148.54,11.17,120.0" />
 
 	</scene>
 
@@ -345,7 +278,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="71.059" vlookat="17.383" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/12-1_Pano_G4_Reconstructed.tiles/preview.jpg" />
 
@@ -353,19 +286,31 @@
 			<cube url="panos/12-1_Pano_G4_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-85.039" atv="2.910" linkedscene="scene_11-1_pano_g4_reconstructed" linkedscene_lookat="104.67,23.78,120.0" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-85.199" atv="2.915" linkedscene="scene_11-1_pano_g4_reconstructed" linkedscene_lookat="104.67,23.78,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-54.351" atv="1.201" linkedscene="scene_10-1_pano_g3_reconstructed" linkedscene_lookat="-224.88,-8.29,120.0" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="5.784" atv="6.171" linkedscene="scene_14-1_pano_g5_reconstructed" linkedscene_lookat="-35.15,-4.14,167.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="5.784" atv="6.171" linkedscene="scene_14-1_pano_g5_reconstructed" linkedscene_lookat="5.17,6.08,120.0" />
 
 	</scene>
 
-	
+	<scene name="scene_13-1_Pano_G4_Reconstructed" title="13-1 Pano G4 Reconstructed" onstart="" thumburl="panos/13-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/13-1_Pano_G4_Reconstructed.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/13-1_Pano_G4_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+		</image>
+
+	</scene>
 
 	<scene name="scene_14-1_Pano_G5_Reconstructed" title="14-1 Pano G5 Reconstructed" onstart="" thumburl="panos/14-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-38.553" vlookat="13.543" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/14-1_Pano_G5_Reconstructed.tiles/preview.jpg" />
 
@@ -373,7 +318,7 @@
 			<cube url="panos/14-1_Pano_G5_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="133.832" atv="1.420" linkedscene="scene_12-1_pano_g4_reconstructed" linkedscene_lookat="-199.41,11.77,158.6" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="133.832" atv="1.420" linkedscene="scene_12-1_pano_g4_reconstructed" linkedscene_lookat="-45.27,-0.79,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.455" atv="9.182" linkedscene="scene_15-1_pano_g5_reconstructed" linkedscene_lookat="-196.87,8.76,120.0" />
 
 	</scene>
@@ -382,7 +327,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="125.952" vlookat="26.054" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/15-1_Pano_G5_Reconstructed.tiles/preview.jpg" />
 
@@ -390,8 +335,8 @@
 			<cube url="panos/15-1_Pano_G5_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="3.451" atv="3.258" linkedscene="scene_14-1_pano_g5_reconstructed" linkedscene_lookat="148.59,-1.42,164.97" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-78.072" atv="6.630" linkedscene="scene_16-1_pano_g5_reconstructed" linkedscene_lookat="-250.17,9.37,165.27" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="3.706" atv="3.264" linkedscene="scene_14-1_pano_g5_reconstructed" linkedscene_lookat="168.02,15.4,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-78.072" atv="6.630" linkedscene="scene_16-1_pano_g5_reconstructed" linkedscene_lookat="-261.36,8.77,120.0" />
 
 	</scene>
 
@@ -399,7 +344,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="104.010" vlookat="21.377" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/16-1_Pano_G5_Reconstructed.tiles/preview.jpg" />
 
@@ -407,7 +352,7 @@
 			<cube url="panos/16-1_Pano_G5_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-40.366" atv="10.587" linkedscene="scene_15-1_pano_g5_reconstructed" linkedscene_lookat="124.73,2.08,165.22" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-40.366" atv="10.587" linkedscene="scene_15-1_pano_g5_reconstructed" linkedscene_lookat="6.62,-2.02,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.107" atv="19.419" linkedscene="scene_17-1_pano_g5_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
 
 	</scene>
@@ -416,7 +361,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="82.533" vlookat="23.765" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/17-1_Pano_G5_Reconstructed.tiles/preview.jpg" />
 
@@ -424,7 +369,7 @@
 			<cube url="panos/17-1_Pano_G5_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-88.868" atv="-11.536" linkedscene="scene_16-1_pano_g5_reconstructed" linkedscene_lookat="-84.09,8.61,169.64" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-88.868" atv="-11.536" linkedscene="scene_16-1_pano_g5_reconstructed" linkedscene_lookat="-36.8,0.27,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.211" atv="12.075" linkedscene="scene_18-1_pano_g6_reconstructed" linkedscene_lookat="19.22,24.57,136.69" />
 
 	</scene>
@@ -433,7 +378,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="7.084" vlookat="12.583" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/18-1_Pano_G6_Reconstructed.tiles/preview.jpg" />
 
@@ -441,9 +386,9 @@
 			<cube url="panos/18-1_Pano_G6_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="159.000" atv="7.907" linkedscene="scene_17-1_pano_g5_reconstructed" linkedscene_lookat="-85.03,-12.33,164.58" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="159.000" atv="7.907" linkedscene="scene_17-1_pano_g5_reconstructed" linkedscene_lookat="-77.58,-8.68,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-118.534" atv="8.477" linkedscene="scene_19-1_pano_g6_reconstructed" linkedscene_lookat="88.41,18.5,120.0" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="-60.030" atv="8.066" linkedscene="scene_21-1_pano_g6_reconstructed_b2" linkedscene_lookat="-63.45,5.77,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-59.969" atv="8.254" linkedscene="scene_21-1_pano_g6_reconstructed_b2" linkedscene_lookat="-63.45,5.77,120.0" />
 
 	</scene>
 
@@ -451,7 +396,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="76.711" vlookat="17.386" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/19-1_Pano_G6_Reconstructed.tiles/preview.jpg" />
 
@@ -463,13 +408,25 @@
 
 	</scene>
 
-	
+	<scene name="scene_20-1_Pano_G6_Reconstructed" title="20-1 Pano G6 Reconstructed" onstart="" thumburl="panos/20-1_Pano_G6_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/20-1_Pano_G6_Reconstructed.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/20-1_Pano_G6_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+		</image>
+
+	</scene>
 
 	<scene name="scene_21-1_Pano_G6_Reconstructed_B2" title="21-1 Pano G6 Reconstructed B2" onstart="" thumburl="panos/21-1_Pano_G6_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-85.356" vlookat="8.468" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/21-1_Pano_G6_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -478,7 +435,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="50.679" atv="2.165" linkedscene="scene_18-1_pano_g6_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-87.367" atv="5.631" linkedscene="scene_22-1_pano_g7_reconstructed" linkedscene_lookat="-61.27,-9.27,168.06" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-87.059" atv="5.638" linkedscene="scene_22-1_pano_g7_reconstructed" linkedscene_lookat="-84.68,1.86,104.99" />
 
 	</scene>
 
@@ -486,7 +443,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-66.456" vlookat="6.685" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/22-1_Pano_G7_Reconstructed.tiles/preview.jpg" />
 
@@ -496,7 +453,7 @@
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="75.939" atv="9.952" linkedscene="scene_23-1_pano_g7_2_reconstructed" linkedscene_lookat="69.38,-15.73,142.22" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-88.867" atv="5.076" linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="124.954" atv="4.120" linkedscene="scene_21-1_pano_g6_reconstructed_b2" linkedscene_lookat="86.84,-1.14,172.9" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="124.954" atv="4.120" linkedscene="scene_21-1_pano_g6_reconstructed_b2" linkedscene_lookat="84.83,-0.52,120.0" />
 
 	</scene>
 
@@ -504,7 +461,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="34.669" vlookat="10.716" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/23-1_Pano_G7_2_Reconstructed.tiles/preview.jpg" />
 
@@ -513,7 +470,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-86.366" atv="15.437" linkedscene="scene_22-1_pano_g7_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-63.060" atv="10.531" linkedscene="scene_24-1_pano_g7_reconstructed" linkedscene_lookat="-522.88,1.24,155.84" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-63.035" atv="9.842" linkedscene="scene_24-1_pano_g7_reconstructed" linkedscene_lookat="-167.34,-9.49,120.0" />
 
 	</scene>
 
@@ -521,7 +478,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-156.964" vlookat="12.806" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/24-1_Pano_G7_Reconstructed.tiles/preview.jpg" />
 
@@ -529,8 +486,8 @@
 			<cube url="panos/24-1_Pano_G7_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="21.199" atv="9.447" linkedscene="scene_23-1_pano_g7_2_reconstructed" linkedscene_lookat="75.01,7.58,166.41" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-177.888" atv="9.209" linkedscene="scene_25-1_pano_g7_reconstructed" linkedscene_lookat="68.63,4.98,163.33" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="21.199" atv="9.447" linkedscene="scene_23-1_pano_g7_2_reconstructed" linkedscene_lookat="108.64,21.76,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-177.888" atv="9.209" linkedscene="scene_25-1_pano_g7_reconstructed" linkedscene_lookat="88.9,3.33,120.0" />
 
 	</scene>
 
@@ -538,7 +495,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="32.148" vlookat="14.355" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/25-1_Pano_G7_Reconstructed.tiles/preview.jpg" />
 
@@ -546,8 +503,8 @@
 			<cube url="panos/25-1_Pano_G7_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-162.118" atv="9.821" linkedscene="scene_24-1_pano_g7_reconstructed" linkedscene_lookat="387.38,10.45,163.1" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_lookat="221.02,12.84,160.7" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-162.118" atv="9.821" linkedscene="scene_24-1_pano_g7_reconstructed" linkedscene_lookat="389.1,27.02,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_lookat="221.32,18.25,120.0" />
 
 	</scene>
 
@@ -555,7 +512,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-165.177" vlookat="8.354" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/26-1_Pano_G8_Reconstructed.tiles/preview.jpg" />
 
@@ -563,7 +520,7 @@
 			<cube url="panos/26-1_Pano_G8_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="15.984" atv="4.750" linkedscene="scene_25-1_pano_g7_reconstructed" linkedscene_lookat="-105.4,5.1,149.38" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="15.984" atv="4.750" linkedscene="scene_25-1_pano_g7_reconstructed" linkedscene_lookat="-129.87,12.79,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-138.857" atv="1.417" linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="15.41,10.1,120.0" />
 
 	</scene>
@@ -572,7 +529,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="0.000" vlookat="0.000" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/27-1_Pano_G8_Reconstructed.tiles/preview.jpg" />
 
@@ -580,7 +537,7 @@
 			<cube url="panos/27-1_Pano_G8_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-170.838" atv="8.866" linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_lookat="28.08,25.93,149.26" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-170.838" atv="8.866" linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_lookat="36.36,33.52,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-71.061" atv="5.825" linkedscene="scene_28-1_pano_g8_reconstructed_b2" linkedscene_lookat="105.36,13.56,120.0" />
 
 	</scene>
@@ -589,7 +546,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-0.142" vlookat="26.662" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/28-1_Pano_G8_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -597,7 +554,7 @@
 			<cube url="panos/28-1_Pano_G8_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-74.810" atv="1.969" linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="34.62,-3.79,149.48" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-74.810" atv="1.969" linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="26.61,-1.57,120.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="79.736" atv="7.151" linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="87.7,7.52,120.0" />
 
 	</scene>
@@ -606,7 +563,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="89.303" vlookat="17.937" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/29-2_Pano_G8_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -614,8 +571,8 @@
 			<cube url="panos/29-2_Pano_G8_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-121.254" atv="9.091" linkedscene="scene_28-1_pano_g8_reconstructed_b2" linkedscene_lookat="-87.54,1.64,163.55" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.757" atv="1.355" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="NaN,NaN,120.0" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-121.254" atv="9.091" linkedscene="scene_28-1_pano_g8_reconstructed_b2" linkedscene_lookat="253.96,6.18,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.704" atv="1.742" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="NaN,NaN,120.0" />
 
 	</scene>
 
@@ -623,7 +580,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="81.563" vlookat="25.018" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/30-1_Pano_G9_Reconstructed.tiles/preview.jpg" />
 
@@ -631,7 +588,7 @@
 			<cube url="panos/30-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-44.419" atv="11.067" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="101.41,10.15,148.77" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-44.419" atv="11.067" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="90.43,30.5,120.0" />
 
 	</scene>
 
@@ -639,7 +596,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="158.042" vlookat="17.664" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/31-1_Pano_G9_Reconstructed.tiles/preview.jpg" />
 
@@ -647,9 +604,9 @@
 			<cube url="panos/31-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-131.643" atv="8.252" linkedscene="scene_30-1_pano_g9_reconstructed" linkedscene_lookat="46.95,6.42,136.56" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="24.358" atv="4.010" linkedscene="scene_32-1_pano_g9_reconstructed" linkedscene_lookat="-66.28,-15.53,160.69" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="4.313" atv="3.069" linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="-112.2,8.48,149.24" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-131.569" atv="8.241" linkedscene="scene_30-1_pano_g9_reconstructed" linkedscene_lookat="138.55,8.73,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="24.358" atv="4.010" linkedscene="scene_32-1_pano_g9_reconstructed" linkedscene_lookat="-66.28,-15.53,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="4.313" atv="3.069" linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="-124.45,8.59,120.0" />
 
 	</scene>
 
@@ -657,7 +614,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-114.780" vlookat="12.738" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/32-1_Pano_G9_Reconstructed.tiles/preview.jpg" />
 
@@ -665,8 +622,8 @@
 			<cube url="panos/32-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="82.515" atv="4.702" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="223.9,17.23,149.45" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="12.934" atv="4.576" linkedscene="scene_33-1_pano_g9_reconstructed" linkedscene_lookat="166.82,-2.9,165.13" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="82.515" atv="4.702" linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="119.38,13.66,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="12.943" atv="4.916" linkedscene="scene_33-1_pano_g9_reconstructed" linkedscene_lookat="167.47,17.23,120.0" />
 
 	</scene>
 
@@ -674,7 +631,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="163.787" vlookat="3.228" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/33-1_Pano_G9_Reconstructed.tiles/preview.jpg" />
 
@@ -682,8 +639,8 @@
 			<cube url="panos/33-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-33.501" atv="9.862" linkedscene="scene_32-1_pano_g9_reconstructed" linkedscene_lookat="-172.38,10.59,158.73" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="134.211" atv="1.026" linkedscene="scene_34-1_pano_g10_reconstructed_b2" linkedscene_lookat="255.45,12.03,163.42" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-33.501" atv="9.862" linkedscene="scene_32-1_pano_g9_reconstructed" linkedscene_lookat="-167.92,23.06,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="134.555" atv="1.026" linkedscene="scene_34-1_pano_g10_reconstructed_b2" linkedscene_lookat="255.45,12.03,120.0" />
 
 	</scene>
 
@@ -691,7 +648,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="230.264" vlookat="6.433" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/34-1_Pano_G10_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -699,8 +656,8 @@
 			<cube url="panos/34-1_Pano_G10_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="146.953" atv="6.187" linkedscene="scene_33-1_pano_g9_reconstructed" linkedscene_lookat="-29.17,10.6,149.17" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-127.818" atv="7.574" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="-45.19,11.65,169.46" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="146.953" atv="6.187" linkedscene="scene_33-1_pano_g9_reconstructed" linkedscene_lookat="-16.55,5.96,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-127.818" atv="7.574" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="-45.19,11.65,144.54" />
 
 	</scene>
 
@@ -708,7 +665,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-49.032" vlookat="8.009" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/35-1_Pano_G10_Reconstructed_F.tiles/preview.jpg" />
 
@@ -716,8 +673,8 @@
 			<cube url="panos/35-1_Pano_G10_Reconstructed_F.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="155.581" atv="8.855" linkedscene="scene_34-1_pano_g10_reconstructed_b2" linkedscene_lookat="139.16,-8.11,145.42" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-99.521" atv="5.103" linkedscene="scene_36-1_pano_g10_reconstructed" linkedscene_lookat="20.37,-2.45,158.74" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="155.581" atv="8.855" linkedscene="scene_34-1_pano_g10_reconstructed_b2" linkedscene_lookat="111.68,12.15,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-99.521" atv="5.103" linkedscene="scene_36-1_pano_g10_reconstructed" linkedscene_lookat="20.93,-0.78,120.0" />
 
 	</scene>
 
@@ -725,7 +682,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-36.765" vlookat="19.840" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/36-1_Pano_G10_Reconstructed.tiles/preview.jpg" />
 
@@ -733,8 +690,8 @@
 			<cube url="panos/36-1_Pano_G10_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="166.124" atv="10.282" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="465.36,11.43,160.7" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="14.867" atv="1.134" linkedscene="scene_37-1_pano_g11_reconstructed_b2" linkedscene_lookat="2.8,20.27,149.21" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="166.124" atv="10.282" linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="469.41,14.66,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="14.884" atv="1.443" linkedscene="scene_37-1_pano_g11_reconstructed_b2" linkedscene_lookat="18.66,1.23,120.0" />
 
 	</scene>
 
@@ -742,7 +699,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="2.800" vlookat="18.521" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/37-1_Pano_G11_Reconstructed_B2.tiles/preview.jpg" />
 
@@ -750,11 +707,25 @@
 			<cube url="panos/37-1_Pano_G11_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="150.620" atv="6.648" linkedscene="scene_36-1_pano_g10_reconstructed" linkedscene_lookat="2369.51,33.7,166.06" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="150.866" atv="6.650" linkedscene="scene_36-1_pano_g10_reconstructed" linkedscene_lookat="182.29,25.72,120.0" />
 
 	</scene>
 
-	
+	<scene name="scene_38-1_Pano_Entrance_Reconstructed" title="38-1 Pano Entrance Reconstructed" onstart="" thumburl="panos/38-1_Pano_Entrance_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.000" vlookat="0.000" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/38-1_Pano_Entrance_Reconstructed.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/38-1_Pano_Entrance_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="114.260" atv="4.303" linkedscene="scene_01-2_pano_g1_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
+
+	</scene>
 
 
 </krpano>
