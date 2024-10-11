@@ -278,7 +278,7 @@
 		
 		</style>
 	</cssstyles>
-	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="true"
+	<style name="skin_hotspotstyle" url="up.svg" edge="top" distorted="true"
 	       tooltip=""
 	       linkedscene=""
 	       linkedscene_lookat=""
@@ -286,11 +286,39 @@
 	       use3dtransition="false"
 	       onclick="skin_hotspotstyle_click();"
 	       depth="1000"
-	       scale="0.5"
-	       onover.addevent="tween(scale,0.55);"
-	       onout.addevent="tween(scale,0.5);"
+	       scale="0.1"
+	       onover.addevent="tween(scale,0.15);"
+	       onout.addevent="tween(scale,0.1);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
 	       />
+
+	<style name="skin_hotspotstyle_right" url="right.svg" edge="top" distorted="true"
+	tooltip=""
+	linkedscene=""
+	linkedscene_lookat=""
+	linkedscene_hoffset="0"
+	use3dtransition="false"
+	onclick="skin_hotspotstyle_click();"
+	depth="1000"
+	scale="0.1"
+	onover.addevent="tween(scale,0.15);"
+	onout.addevent="tween(scale,0.1);"
+	onloaded.addevent="skin_hotspotstyle_setup();"
+	/>
+
+	<style name="skin_hotspotstyle_left" url="left.svg" edge="top" distorted="true"
+	tooltip=""
+	linkedscene=""
+	linkedscene_lookat=""
+	linkedscene_hoffset="0"
+	use3dtransition="false"
+	onclick="skin_hotspotstyle_click();"
+	depth="1000"
+	scale="0.1"
+	onover.addevent="tween(scale,0.15);"
+	onout.addevent="tween(scale,0.1);"
+	onloaded.addevent="skin_hotspotstyle_setup();"
+	/>
 
 	<style name="skin_hotspotstyles" url="thumb.jpg" edge="top" distorted="true"
 	tooltip=""
@@ -308,33 +336,8 @@
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
-	<style name="hotspot-1000" url="circle-hotspot.png" edge="top" distorted="true"
-	       tooltip=""
-	       linkedscene=""
-	       linkedscene_lookat=""
-	       linkedscene_hoffset="0"
-	       use3dtransition="false"
-	       onclick="skin_hotspotstyle_click();"
-	       depth="1000"
-	       scale="0.5"
-	       onover.addevent="tween(scale,0.55);"
-	       onout.addevent="tween(scale,0.5);"
-	       onloaded.addevent="skin_hotspotstyle_setup();"
-	       />
+	
 
-<style name="hotspot-2000" url="vtourskin_hotspot.png" edge="top" distorted="true"
-	       tooltip=""
-	       linkedscene=""
-	       linkedscene_lookat=""
-	       linkedscene_hoffset="0"
-	       use3dtransition="false"
-	       onclick="skin_hotspotstyle_click();"
-	       depth="2000"
-	       scale="0.5"
-	       onover.addevent="tween(scale,0.55);"
-	       onout.addevent="tween(scale,0.5);"
-	       onloaded.addevent="skin_hotspotstyle_setup();"
-	       />
 
 		   
 	<action name="skin_hotspotstyle_setup" scope="local">
