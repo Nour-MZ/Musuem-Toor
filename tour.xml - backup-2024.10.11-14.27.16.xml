@@ -207,11 +207,10 @@
 			<cube url="panos/03-1_Pano_G2_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="46.024" atv="2.976" linkedscene="scene_05-1_pano_g2_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
 		
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-60.480" atv="6.980" linkedscene="scene_04-1_pano_g2_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
 		<hotspot name="spot4" style="skin_hotspotstyle" ath="-14.245" atv="6.805" linkedscene="scene_01-2_pano_g1_reconstructed_b2" linkedscene_hoffset="0.0" use3dtransition="true" />
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="45.995" atv="4.559" linkedscene="scene_05-1_pano_g2_reconstructed_b2" linkedscene_lookat="-58.72,0.14,140.0" />
 		
 
 	</scene>
@@ -240,7 +239,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-52.424" vlookat="4.688" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-59.279" vlookat="9.962" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/05-1_Pano_G2_Reconstructed_B2.tiles/preview.jpg" />
 
