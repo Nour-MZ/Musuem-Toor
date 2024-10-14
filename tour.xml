@@ -335,13 +335,13 @@
 
 	</scene>
 
-	<action name="scene_11-1-animation">
+	<!-- <action name="scene_11-1-animation">
 		
 		lookto(130, 0, 140, tween(easeinoutcubic, 2 ), true, true)
 		trace(view.vlookat);
 
-	</action>
-	<scene name="scene_11-1_Pano_G4_Reconstructed" title="11-1 Pano G4 Reconstructed" onstart="delayedcall(0.5, scene_11-1-animation();)" thumburl="panos/11-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	</action> -->
+	<scene name="scene_11-1_Pano_G4_Reconstructed" title="11-1 Pano G4 Reconstructed" onstart="" thumburl="panos/11-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
