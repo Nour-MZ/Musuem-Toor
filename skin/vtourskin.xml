@@ -272,12 +272,49 @@
 	<style name="skin_thumbtext_style" type="text" align="bottom" width="100%" y="5" enabled="false" bg="false" bgborder="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-size:10px;'" txtshadow="get:skin_settings.design_text_txtshadow" />
 
 	<!-- skin_hotspotstyle - style for the hotspots -->
-	<cssstyles>
-		<style name="border">
-			border-radius:3rem;
+	
+
+	<cssstyles><![CDATA[
+		@keyframes pulse { 0%, 100% { width: 100px; } 50% { width: 200px;} }
+
+		@keyframes resize {
+		0%, 100% { width: 100px; height: 100px; }
+		50% { width: 120px; height: 120px; }
+		}
+
+		@keyframes backgroundPulse {
+		0%, 100% { background-size: 100%; }
+		50% { background-size: 120%; }
+		}
 		
-		</style>
-	</cssstyles>
+		.tester{
+			
+			
+		}
+			
+	]]></cssstyles>
+
+
+	<action name="addanimation" scope="local" args="item">
+		
+		animateditem = get(item);
+		
+		
+		tween(caller.scale, 1);
+		
+		delayedcall(2.0, tester(caller.name));
+		
+		trace(caller.name);
+	</action>
+
+	<action name="tester" args="item" scope="local">
+		a = get(item)
+		trace(a);
+		tween(hotspot[get(item)].scale, 0);
+		delayedcall(2.0, addanimation(get(item)));
+		
+	</action>
+
 	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="true"
 	       tooltip=""
 	       linkedscene=""
@@ -287,6 +324,8 @@
 	       onclick="skin_hotspotstyle_click();"
 	       depth="1000"
 	       scale="0.5"
+		   renderer="css3d"
+		   cssclass="tester"
 	       onover.addevent="tween(scale,0.55);"
 	       onout.addevent="tween(scale,0.5);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
@@ -333,7 +372,7 @@
 	scale="0.3"
 	onover.addevent="tween(scale,0.35);"
 	onout.addevent="tween(scale,0.35);"
-	onloaded.addevent="skin_hotspotstyle_setup();"
+	onloaded.addevent="skin_hotspotstyle_setup(); "
 	/>
 
 	
@@ -346,6 +385,8 @@
 			caller.loadstyle(skin_tooltips);
 		);
 	</action>
+
+	
 
 	<action name="skin_hotspotstyle_click" scope="local">
 		if(isvalue(caller.linkedscene),

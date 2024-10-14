@@ -1,7 +1,8 @@
 ﻿<krpano version="1.21" title="Virtual Tour" >
 
 	<include url="skin/vtourskin.xml" />
-
+	
+		
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
 	<skin_settings maps="false"
 	               maps_type="google"
@@ -14,7 +15,7 @@
 	               webvr="false"
 	               webvr_keeplookingdirection="true"
 	               webvr_prev_next_hotspots="true"
-	               autotour="true"
+	               autotour="false"
 	               littleplanetintro="false"
 	               followmousecontrol="false"
 	               title="true"
@@ -68,8 +69,9 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	<!--  -->
-	<action name="actioner" type="Javascript" autorun="onload" ><![CDATA[
+	<!-- autorun="onload"  -->
+
+	<action name="actioner" type="Javascript" ><![CDATA[
 		function transformSceneString(sceneString) {
 			
 			let modifiedString = sceneString.replace(/^scene_/, '');
@@ -114,7 +116,10 @@
 
 					hotspotitem.setvars({
 						 onhover: `addimage(${name})`,
-						 onout: `removeimage(${name})`
+						 onout: `removeimage(${name})`,
+						
+						 
+
 					});
 				}
 			}
@@ -129,15 +134,7 @@
 		set(events.onidle, autotour());
 	</action>
 
-	<action name="autotour">
-		
-		
-		
-		
-
-		
-		
-	</action>
+	
 
 	<action scope="local" name="addimage" args ="test">
 	
@@ -156,8 +153,12 @@
 		caller.sprite.style[ args[1] ] = args[2];
 		caller.sprite.style[ args[3] ] = args[4];
 	  </action>
-	  
-	  <scene name="scene_38-1_Pano_Entrance_Reconstructed" title="38-1 Pano Entrance Reconstructed" onstart="" thumburl="panos/38-1_Pano_Entrance_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+
+	  <action name="scene_38-1-animation">
+		looktohotspot(spot1, 140);
+	  </action>
+
+	  <scene name="scene_38-1_Pano_Entrance_Reconstructed" title="38-1 Pano Entrance Reconstructed" onstart="scene_38-1-animation();" thumburl="panos/38-1_Pano_Entrance_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -185,17 +186,19 @@
 			<cube url="panos/01-2_Pano_G1_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-
-		
-
 		<hotspot name="spot1"  atest="good" style="skin_hotspotstyle_right" ath="-125.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="104.691" atv="6.205" linkedscene="scene_03-1_pano_g2_reconstructed_b2" linkedscene_lookat="138.96,11.25,164.81" />
 		
-		
-
 	</scene>
 
-	<scene name="scene_03-1_Pano_G2_Reconstructed_B2" title="03-1 Pano G2 Reconstructed B2" onstart="" thumburl="panos/03-1_Pano_G2_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+
+	<action name="scene_03-1-animation">
+		
+		lookto(-10, 0, 140, tween(easeinoutcubic, 2 ), true, true, set(view.hlookat, -10);)
+		trace(view.vlookat);
+	</action>
+
+	<scene name="scene_03-1_Pano_G2_Reconstructed_B2" title="03-1 Pano G2 Reconstructed B2" onstart="delayedcall(0.5,scene_03-1-animation();)" thumburl="panos/03-1_Pano_G2_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -215,7 +218,7 @@
 		
 
 	</scene>
-
+	
 	
 
 	
@@ -272,7 +275,14 @@
 
 	</scene>
 
-	<scene name="scene_07-1_Pano_G3_Reconstructed_B2" title="07-1 Pano G3 Reconstructed B2" onstart="" thumburl="panos/07-1_Pano_G3_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_07-1-animation">
+		
+		lookto(80, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		trace(view.vlookat);
+
+	</action>
+
+	<scene name="scene_07-1_Pano_G3_Reconstructed_B2" title="07-1 Pano G3 Reconstructed B2" onstart="delayedcall(0.5, scene_07-1-animation();)" thumburl="panos/07-1_Pano_G3_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -325,7 +335,13 @@
 
 	</scene>
 
-	<scene name="scene_11-1_Pano_G4_Reconstructed" title="11-1 Pano G4 Reconstructed" onstart="" thumburl="panos/11-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_11-1-animation">
+		
+		lookto(130, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		trace(view.vlookat);
+
+	</action>
+	<scene name="scene_11-1_Pano_G4_Reconstructed" title="11-1 Pano G4 Reconstructed" onstart="delayedcall(0.5, scene_11-1-animation();)" thumburl="panos/11-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -342,7 +358,13 @@
 
 	</scene>
 
-	<scene name="scene_12-1_Pano_G4_Reconstructed" title="12-1 Pano G4 Reconstructed" onstart="" thumburl="panos/12-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_12-1-animation">
+		
+		lookto(-50, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		trace(view.vlookat);
+
+	</action>
+	<scene name="scene_12-1_Pano_G4_Reconstructed" title="12-1 Pano G4 Reconstructed" onstart="delayedcall(0.5, scene_12-1-animation();)" thumburl="panos/12-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -379,7 +401,13 @@
 
 	</scene>
 
-	<scene name="scene_15-1_Pano_G5_Reconstructed" title="15-1 Pano G5 Reconstructed" onstart="" thumburl="panos/15-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_15-1-animation">
+		
+		lookto(-40, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		
+
+	</action>
+	<scene name="scene_15-1_Pano_G5_Reconstructed" title="15-1 Pano G5 Reconstructed" onstart="delayedcall(0.5, scene_15-1-animation();)"  thumburl="panos/15-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -431,7 +459,13 @@
 
 	</scene>
 
-	<scene name="scene_18-1_Pano_G6_Reconstructed" title="18-1 Pano G6 Reconstructed" onstart="" thumburl="panos/18-1_Pano_G6_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_18-1-animation">
+		
+		lookto(-120, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		
+
+	</action>
+	<scene name="scene_18-1_Pano_G6_Reconstructed" title="18-1 Pano G6 Reconstructed"  onstart="delayedcall(0.5, scene_18-1-animation();)" thumburl="panos/18-1_Pano_G6_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -502,7 +536,13 @@
 
 	</scene>
 
-	<scene name="scene_23-1_Pano_G7_2_Reconstructed" title="23-1 Pano G7 2 Reconstructed" onstart="" thumburl="panos/23-1_Pano_G7_2_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_23-1-animation">
+		
+		lookto(-80, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+		
+
+	</action>
+	<scene name="scene_23-1_Pano_G7_2_Reconstructed" title="23-1 Pano G7 2 Reconstructed" onstart="delayedcall(0.5, scene_23-1-animation();)" thumburl="panos/23-1_Pano_G7_2_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -569,8 +609,12 @@
 		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="-138.857" atv="1.417" linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="15.41,10.1,120.0" />
 
 	</scene>
+	<action name="scene_27-1-animation">
+		
+		lookto(-120, 0, 140, tween(easeinoutcubic, 2 ), true, true)
 
-	<scene name="scene_27-1_Pano_G8_Reconstructed" title="27-1 Pano G8 Reconstructed" onstart="" thumburl="panos/27-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+</action>
+	<scene name="scene_27-1_Pano_G8_Reconstructed" title="27-1 Pano G8 Reconstructed" onstart="delayedcall(0.5, scene_27-1-animation();)" thumburl="panos/27-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -603,8 +647,8 @@
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="79.736" atv="7.151" linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="87.7,7.52,120.0" />
 
 	</scene>
-
-	<scene name="scene_29-2_Pano_G8_Reconstructed_B2" title="29-2 Pano G8 Reconstructed B2" onstart="" thumburl="panos/29-2_Pano_G8_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	
+	<scene name="scene_29-2_Pano_G8_Reconstructed_B2" title="29-2 Pano G8 Reconstructed B2" onstart=""  thumburl="panos/29-2_Pano_G8_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -637,7 +681,12 @@
 
 	</scene>
 
-	<scene name="scene_31-1_Pano_G9_Reconstructed" title="31-1 Pano G9 Reconstructed" onstart="" thumburl="panos/31-1_Pano_G9_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_31-1-animation">
+		
+		lookto(50, 0, 140, tween(easeinoutcubic, 2 ), true, true)
+
+	</action>	
+	<scene name="scene_31-1_Pano_G9_Reconstructed" title="31-1 Pano G9 Reconstructed" onstart="delayedcall(0.5, scene_31-1-animation();)" thumburl="panos/31-1_Pano_G9_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
