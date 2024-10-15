@@ -383,6 +383,7 @@
 		if(isvalue(caller.linkedscene) AND skin_settings.tooltips_hotspots,
 			copy(caller.tooltip, scene[get(caller.linkedscene)].title);
 			caller.loadstyle(skin_tooltips);
+			
 		);
 	</action>
 
@@ -403,9 +404,12 @@
 				);
 			);
 			skin_updatescroll();
+			
 		);
 	</action>
-	
+	<!-- looktohotspot(caller.name, 90, linear(2));
+			trace(caller.name);
+			showlog(); -->
 	<action name="skin_scene3dtransition" scope="local" args="scenename, hlookatoffset">
 		motionblur = 0.5;
 		transitiondelay = 0.0;
