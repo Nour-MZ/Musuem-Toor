@@ -156,7 +156,6 @@
 
 	  <action name="scene_38-1-animation">
 		looktohotspot(spot1, 140);
-		showlog();
 	  </action>
 
 	  <action name="scene_hotspot_mapping">
@@ -174,7 +173,7 @@
 		<!-- set(view.hlookat, get(a)); -->
 
 		<!-- trace(view.hlookat); -->
-		showlog();
+		
 		
 	</action>
 
@@ -214,7 +213,7 @@
 
 	<action name="scene_03-1-animation">
 		
-		lookto(-10, 0, 140, tween(easeinoutcubic, 3 ), true, true, set(view.hlookat, -10);)
+		lookto(-10, 0, 140, tween(easeinoutcubic, 3.5 ), true, true, set(view.hlookat, -10);)
 		trace(view.vlookat);
 	</action>
 
@@ -299,7 +298,7 @@
 
 	<action name="scene_07-1-animation">
 		
-		lookto(80, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(80, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		trace(view.vlookat);
 
 	</action>
@@ -359,7 +358,7 @@
 
 	<action name="scene_11-1-animation">
 		
-		lookto(130, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(130, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		trace(view.vlookat);
 
 	</action>
@@ -382,7 +381,7 @@
 
 	<action name="scene_12-1-animation">
 		
-		lookto(-50, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-50, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		trace(view.vlookat);
 
 	</action>
@@ -406,7 +405,7 @@
 
 	<action name="scene_13-1-animation">
 		
-		lookto(90, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(90, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		trace(view.vlookat);
 
 	</action>
@@ -447,7 +446,7 @@
 
 	<action name="scene_15-1-animation">
 		
-		lookto(-40, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-40, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		
 
 	</action>
@@ -505,7 +504,7 @@
 
 	<action name="scene_18-1-animation">
 		
-		lookto(-130, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-130, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		
 
 	</action>
@@ -529,7 +528,7 @@
 
 	<action name="scene_19-1-animation">
 		
-		lookto(-120, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-120, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		
 
 	</action>
@@ -570,7 +569,7 @@
 
 	<action name="scene_22-1-animation">
 		
-		lookto(90, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(90, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		
 
 	</action>
@@ -594,7 +593,7 @@
 
 	<action name="scene_23-1-animation">
 		
-		lookto(-80, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-80, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 		
 
 	</action>
@@ -667,7 +666,7 @@
 	</scene>
 	<action name="scene_27-1-animation">
 		
-		lookto(-120, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(-120, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 
 </action>
 	<scene name="scene_27-1_Pano_G8_Reconstructed" title="27-1 Pano G8 Reconstructed" onstart="delayedcall(0.8, scene_27-1-animation();)" thumburl="panos/27-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -739,7 +738,7 @@
 
 	<action name="scene_31-1-animation">
 		
-		lookto(50, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(50, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 
 	</action>	
 	<scene name="scene_31-1_Pano_G9_Reconstructed" title="31-1 Pano G9 Reconstructed" onstart="delayedcall(0.8, scene_31-1-animation();)" thumburl="panos/31-1_Pano_G9_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -761,7 +760,7 @@
 	</scene>
 	<action name="scene_32-1-animation">
 		
-		lookto(20, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(20, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 
 	</action>
 
@@ -801,7 +800,7 @@
 
 	<action name="scene_34-1-animation">
 		
-		lookto(180, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(180, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 
 	</action>
 	<scene name="scene_34-1_Pano_G10_Reconstructed_B2" title="34-1 Pano G10 Reconstructed B2" onstart="delayedcall(0.8, scene_34-1-animation();)" thumburl="panos/34-1_Pano_G10_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -823,7 +822,7 @@
 
 	<action name="scene_35-1-animation">
 		
-		lookto(200, 0, 140, tween(easeinoutcubic, 3 ), true, true)
+		lookto(200, 0, 140, tween(easeinoutcubic, 3.5 ), true, true)
 
 	</action>
 	<scene name="scene_35-1_Pano_G10_Reconstructed_F" title="35-1 Pano G10 Reconstructed F" onstart="delayedcall(0.8, scene_35-1-animation();)" thumburl="panos/35-1_Pano_G10_Reconstructed_F.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
