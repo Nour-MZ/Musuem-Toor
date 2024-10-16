@@ -315,7 +315,7 @@
 		
 	</action>
 
-	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="true"
+	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="false"
 	       tooltip=""
 	       linkedscene=""
 	       linkedscene_lookat=""
@@ -323,15 +323,15 @@
 	       use3dtransition="false"
 	       onclick="skin_hotspotstyle_click();"
 	       depth="1000"
-	       scale="0.5"
+	       scale="0.3"
 		   renderer="css3d"
 		   cssclass="tester"
-	       onover.addevent="tween(scale,0.55);"
-	       onout.addevent="tween(scale,0.5);"
+	       onover.addevent="tween(scale,0.35);"
+	       onout.addevent="tween(scale,0.3);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
 	       />
 
-	<style name="skin_hotspotstyle_right" url="right.svg" edge="top" distorted="true"
+	<style name="skin_hotspotstyle_right" url="right.svg" edge="top" distorted="false"
 	tooltip=""
 	linkedscene=""
 	linkedscene_lookat=""
@@ -339,13 +339,13 @@
 	use3dtransition="false"
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
-	scale="0.1"
-	onover.addevent="tween(scale,0.11);"
-	onout.addevent="tween(scale,0.1);"
+	scale="0.05"
+	onover.addevent="tween(scale,0.06);"
+	onout.addevent="tween(scale,0.05);"
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
-	<style name="skin_hotspotstyle_left" url="left.svg" edge="top" distorted="true"
+	<style name="skin_hotspotstyle_left" url="left.svg" edge="top" distorted="false"
 	tooltip=""
 	linkedscene=""
 	linkedscene_lookat=""
@@ -353,13 +353,13 @@
 	use3dtransition="false"
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
-	scale="0.1"
-	onover.addevent="tween(scale,0.11);"
-	onout.addevent="tween(scale,0.1);"
+	scale="0.05"
+	onover.addevent="tween(scale,0.06);"
+	onout.addevent="tween(scale,0.05);"
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
-	<style name="skin_hotspotstyles" url="thumb.jpg" edge="top" distorted="true"
+	<style name="skin_hotspotstyles" url="thumb.jpg" edge="top" distorted="false"
 	tooltip=""
 	cssclass="border"
 	css="calc:'border-radius:10rem; display:none;'"
@@ -398,7 +398,7 @@
 			if(caller.use3dtransition,
 				skin_scene3dtransition(get(hs_linkedscene),get(caller.linkedscene_hoffset));
 			  ,
-				tween(caller.depth|caller.alpha|caller.oy|caller.rx, 4000|0.0|-50|-60, 0.5, default,
+				tween(caller.depth|caller.alpha|caller.rx, 4000|0.0|-60, 0.5, default,
 					skin_loadscene(get(hs_linkedscene), get(skin_settings.loadscene_blend));
 					if(hs_lookat_h !== null, skin_lookat(get(hs_lookat_h), get(hs_lookat_v), get(hs_lookat_fov)); );
 				);

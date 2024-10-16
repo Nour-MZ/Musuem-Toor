@@ -820,11 +820,7 @@
 
 	</scene>
 
-	<action name="scene_35-1-animation">
-		
-		lookto(200, 0, 140, tween(easeinoutcubic, 4 ), true, true)
-
-	</action>
+	
 	<scene name="scene_35-1_Pano_G10_Reconstructed_F" title="35-1 Pano G10 Reconstructed F" onstart="delayedcall(0.8, scene_35-1-animation();)" thumburl="panos/35-1_Pano_G10_Reconstructed_F.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
