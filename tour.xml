@@ -105,15 +105,18 @@
 					newimageitem.loadstyle("skin_hotspotstyles");
 					newimageitem.setvars({
 						keep:false, 
-						yoffset:0,
-						atv: hotspotitem.atv -10,
+						
+						
+						torigin:"world",
+						distorted: false,
+						atv: hotspotitem.atv - 1,
 						ath: hotspotitem.ath,
 						renderer: "css3d",
 						onloaded: "set_css_style('border-radius', '50%', 'background-color', 'pink');" ,
 						alpha: 0,
 						url : `panos/${linkedscene}/thumb.jpg`,
 					});
-
+					console.log(newimageitem);
 					hotspotitem.setvars({
 						 onhover: `addimage(${name})`,
 						 onout: `removeimage(${name})`,

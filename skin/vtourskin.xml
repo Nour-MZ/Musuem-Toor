@@ -323,12 +323,13 @@
 	       use3dtransition="false"
 	       onclick="skin_hotspotstyle_click();"
 	       depth="1000"
-	       scale="0.3"
+	       scale="0.5"
 		   renderer="css3d"
 		   cssclass="tester"
-	       onover.addevent="tween(scale,0.35);"
-	       onout.addevent="tween(scale,0.3);"
+	       onover.addevent="tween(scale,0.55);"
+	       onout.addevent="tween(scale,0.5);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
+		   zoom="true"
 	       />
 
 	<style name="skin_hotspotstyle_right" url="right.svg" edge="top" distorted="false"
@@ -359,10 +360,12 @@
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
-	<style name="skin_hotspotstyles" url="thumb.jpg" edge="top" distorted="false"
+	<style name="skin_hotspotstyles" url="thumb.jpg" edge="bottom" distorted="false"
+	
 	tooltip=""
-	cssclass="border"
-	css="calc:'border-radius:10rem; display:none;'"
+	zoom="true"
+	cssclass=""
+	css=""
 	linkedscene=""
 	linkedscene_lookat=""
 	linkedscene_hoffset="0"
@@ -370,8 +373,7 @@
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
 	scale="0.3"
-	onover.addevent="tween(scale,0.35);"
-	onout.addevent="tween(scale,0.35);"
+	
 	onloaded.addevent="skin_hotspotstyle_setup(); "
 	/>
 
