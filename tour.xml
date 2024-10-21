@@ -1,4 +1,4 @@
-﻿<krpano version="1.21" title="Virtual Tour"  >
+﻿<krpano version="1.21" title="Virtual Tour" logkey="false" showerrors="false" >
 	<!-- logkey="false" showerrors="false" -->
 	<include url="skin/vtourskin.xml" />
 	
@@ -465,7 +465,7 @@
 
 	<action name="scene_15-1-animation">
 		
-		lookto(-40, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(-40, 0, 140, tween(easeinoutcubic, 4 ), true, true);
 		
 
 	</action>
@@ -529,7 +529,7 @@
 
 	<action name="scene_18-1-animation">
 		
-		lookto(-130, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(-80, 0, 140, tween(easeinoutcubic, 4 ), true, true)
 		
 
 	</action>
@@ -546,7 +546,6 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="159.000" atv="7.907" linkedscene="scene_17-1_pano_g5_reconstructed" onclick="scene_hotspot_mapping(spot1, 55);skin_hotspotstyle_click();"  linkedscene_lookat="-85.03,-12.33,164.58" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-118.534" atv="8.477" linkedscene="scene_19-1_pano_g6_reconstructed" onclick="scene_hotspot_mapping(spot2, 190);skin_hotspotstyle_click();"  linkedscene_lookat="88.41,18.5,120.0" />
 		<hotspot name="spot3" style="skin_hotspotstyle_right" ath="-55.944" atv="2.311" linkedscene="scene_21-1_pano_g6_reconstructed_b2" onclick="skin_hotspotstyle_click();"  linkedscene_lookat="280.22,20,136.69" />
 
 	</scene>
@@ -611,8 +610,8 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="75.939" atv="9.952" linkedscene="scene_23-1_pano_g7_2_reconstructed" onclick="scene_hotspot_mapping(spot1, -10);skin_hotspotstyle_click();"  linkedscene_lookat="69.38,-15.73,142.22" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-89.067" atv="9.170" linkedscene="scene_26-1_pano_g8_reconstructed" onclick="scene_hotspot_mapping(spot2, 260);skin_hotspotstyle_click();"  />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="126.937" atv="4.120" linkedscene="scene_21-1_pano_g6_reconstructed_b2" onclick="scene_hotspot_mapping(spot3, -10);skin_hotspotstyle_click();"  linkedscene_lookat="86.84,-1.14,172.9" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-61.067" atv="7.170" linkedscene="scene_25-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot2, 160);skin_hotspotstyle_click();"  />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="130" atv="4.120" linkedscene="scene_21-1_pano_g6_reconstructed_b2" onclick="scene_hotspot_mapping(spot3, -10);skin_hotspotstyle_click();"  linkedscene_lookat="86.84,-1.14,172.9" />
 
 	</scene>
 
@@ -670,6 +669,7 @@
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-157.708" atv="12.379" linkedscene="scene_24-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot1, 110);skin_hotspotstyle_click();"  linkedscene_lookat="387.38,10.45,163.1" />
 		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed" onclick="scene_hotspot_mapping(spot2, 90);skin_hotspotstyle_click();"  linkedscene_lookat="221.02,12.84,160.7" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-92.711" atv="6.643" linkedscene="scene_22-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot3, 180);skin_hotspotstyle_click();"  linkedscene_lookat="221.02,12.84,160.7" />
 
 	</scene>
 
@@ -707,7 +707,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-172.192" atv="10.885" onclick="scene_hotspot_mapping(spot1, 190);skin_hotspotstyle_click();"  linkedscene="scene_26-1_pano_g8_reconstructed" linkedscene_lookat="28.08,25.93,149.26" />
-		<hotspot name="spot2" style="skin_hotspotstyle_left" ath="-71.065" atv="5.614" onclick="scene_hotspot_mapping(spot2, 240);skin_hotspotstyle_click();"  linkedscene="scene_28-1_pano_g8_reconstructed_b2" linkedscene_lookat="105.36,13.56,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle_left" ath="-71.065" atv="5.614" onclick="scene_hotspot_mapping(spot2, 130);skin_hotspotstyle_click();"  linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="105.36,13.56,120.0" />
 
 	</scene>
 
@@ -728,9 +728,7 @@
 			<cube url="panos/28-1_Pano_G8_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="-74.612" atv="1.954" onclick="scene_hotspot_mapping(spot1, 105);skin_hotspotstyle_click();"  linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="34.62,-3.79,149.48" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="-109.900" atv="5.733" onclick="scene_hotspot_mapping(spot2, 150);skin_hotspotstyle_click();"  linkedscene="scene_29-2_pano_g8_reconstructed_b2" linkedscene_lookat="87.7,7.52,120.0" />
-
+		
 	</scene>
 	
 	<scene name="scene_29-2_Pano_G8_Reconstructed_B2" title="29-2 Pano G8 Reconstructed B2" onstart=""  thumburl="panos/29-2_Pano_G8_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -745,7 +743,7 @@
 			<cube url="panos/29-2_Pano_G8_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-114.322" atv="8.628" onclick="scene_hotspot_mapping(spot1, 180);skin_hotspotstyle_click();"  linkedscene="scene_28-1_pano_g8_reconstructed_b2" linkedscene_lookat="-87.54,1.64,163.55" />
+		<hotspot name="spot1" style="skin_hotspotstyle_left" ath="-140.322" atv="10.628" onclick="scene_hotspot_mapping(spot1, 200);skin_hotspotstyle_click();"  linkedscene="scene_27-1_pano_g8_reconstructed" linkedscene_lookat="-87.54,1.64,163.55" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.773" atv="4.647" onclick="scene_hotspot_mapping(spot2, 140);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="NaN,NaN,120.0" />
 
 	</scene>
