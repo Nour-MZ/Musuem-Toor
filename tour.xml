@@ -760,7 +760,7 @@
 			<cube url="panos/30-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="-44.419" atv="11.067" onclick="scene_hotspot_mapping(spot1, 50);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="101.41,10.15,148.77" />
+		<!-- <hotspot name="spot1" style="skin_hotspotstyle_right" ath="-44.419" atv="11.067" onclick="scene_hotspot_mapping(spot1, 50);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="101.41,10.15,148.77" /> -->
 
 	</scene>
 
