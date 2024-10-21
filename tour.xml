@@ -488,7 +488,7 @@
 
 	<action name="scene_15-1-animation">
 		
-		lookto(100, 20, 120, tween(easeinoutcubic, 4 ), true, true)
+		lookto(-20, 20, 120, tween(easeinoutcubic, 4 ), true, true)
 		
 
 	</action>
