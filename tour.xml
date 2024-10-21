@@ -486,13 +486,13 @@
 
 	</scene>
 
-	<action name="scene_15-1-animation">
+	<action name="scene_16-1-animation">
 		
 		lookto(-250, 20, 120, tween(easeinoutcubic, 4 ), true, true)
 		
 
 	</action>
-	<scene name="scene_16-1_Pano_G5_Reconstructed" title="16-1 Pano G5 Reconstructed" onstart="delayedcall(0.8, scene_15-1-animation();)" thumburl="panos/16-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_16-1_Pano_G5_Reconstructed" title="16-1 Pano G5 Reconstructed" onstart="delayedcall(0.8, scene_16-1-animation();)" thumburl="panos/16-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
