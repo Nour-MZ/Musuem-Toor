@@ -668,12 +668,17 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-157.708" atv="12.379" linkedscene="scene_24-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot1, 110);skin_hotspotstyle_click();"  linkedscene_lookat="387.38,10.45,163.1" />
-		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed"  linkedscene_lookat="210.02,12.84,160.7" />
+		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed" onclick="scene_hotspot_mapping(spot2, 90);skin_hotspotstyle_click();" linkedscene_lookat="210.02,12.84,160.7" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-92.711" atv="6.643" linkedscene="scene_22-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot3, 180);skin_hotspotstyle_click();"  linkedscene_lookat="221.02,12.84,160.7" />
 
 	</scene>
 
-	<scene name="scene_26-1_Pano_G8_Reconstructed" title="26-1 Pano G8 Reconstructed" onstart="" thumburl="panos/26-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_26-1-animation">
+		
+		lookto(195, 0, 140, tween(easeinoutcubic, 4 ), true, true);
+
+</action>
+	<scene name="scene_26-1_Pano_G8_Reconstructed" title="26-1 Pano G8 Reconstructed" onstart="delayedcall(0.8, scene_26-1-animation();)"  thumburl="panos/26-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -760,7 +765,7 @@
 			<cube url="panos/30-1_Pano_G9_Reconstructed.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<!-- <hotspot name="spot1" style="skin_hotspotstyle_right" ath="-44.419" atv="11.067" onclick="scene_hotspot_mapping(spot1, 50);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="101.41,10.15,148.77" /> -->
+		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="-44.419" atv="11.067" onclick="scene_hotspot_mapping(spot1, 50);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="101.41,10.15,148.77" />
 
 	</scene>
 
