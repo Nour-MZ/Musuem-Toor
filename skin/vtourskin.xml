@@ -315,19 +315,21 @@
 		
 	</action>
 
-	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="top" distorted="false"
+	<style name="skin_hotspotstyle" url="circle_hotspot.png" edge="center" distorted="true"
 	       tooltip=""
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       linkedscene_hoffset="0"
 	       use3dtransition="false"
 	       onclick="skin_hotspotstyle_click();"
-	       depth="1000"
-	       scale="0.5"
+	       depth="4000"
+	       scale="1.2"
+		   rx="120"
+		   
 		   renderer="css3d"
 		   cssclass="tester"
-	       onover.addevent="tween(scale,0.55);"
-	       onout.addevent="tween(scale,0.5);"
+	       onover.addevent="tween(scalex,1.4);"
+	       onout.addevent="tween(scalex,1.2);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
 		   zoom="true"
 	       />
@@ -372,7 +374,7 @@
 	use3dtransition="false"
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
-	scale="0.3"
+	scale="1"
 	
 	onloaded.addevent="skin_hotspotstyle_setup(); "
 	/>
