@@ -112,7 +112,7 @@
 						
 						
 						
-						distorted: true,
+						distorted: false,
 						depth: 4000,
 						atv: hotspotitem.atv - 4,
 						ath: hotspotitem.ath,

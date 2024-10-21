@@ -342,9 +342,9 @@
 	use3dtransition="false"
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
-	scale="0.05"
-	onover.addevent="tween(scale,0.06);"
-	onout.addevent="tween(scale,0.05);"
+	scale="0.045"
+	onover.addevent="tween(scale,0.05);"
+	onout.addevent="tween(scale,0.045);"
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
@@ -356,9 +356,9 @@
 	use3dtransition="false"
 	onclick="skin_hotspotstyle_click();"
 	depth="1000"
-	scale="0.05"
-	onover.addevent="tween(scale,0.06);"
-	onout.addevent="tween(scale,0.05);"
+	scale="0.045"
+	onover.addevent="tween(scale,0.05);"
+	onout.addevent="tween(scale,0.045);"
 	onloaded.addevent="skin_hotspotstyle_setup();"
 	/>
 
