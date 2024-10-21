@@ -393,7 +393,7 @@
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="178.903" atv="11.007" linkedscene="scene_12-1_pano_g4_reconstructed" onclick="scene_hotspot_mapping(spot1, 260);skin_hotspotstyle_click();" linkedscene_lookat="70.97,12.49,156.02" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="91.377" atv="9.523" linkedscene="scene_10-1_pano_g3_reconstructed" onclick="scene_hotspot_mapping(spot2, 30);skin_hotspotstyle_click();" linkedscene_lookat="129.14,13.72,161.04" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="121.874" atv="9.787" linkedscene="scene_13-1_pano_g4_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="121.874" atv="9.787" linkedscene="scene_13-1_pano_g4_reconstructed" onclick="scene_hotspot_mapping(spot3, -120);skin_hotspotstyle_click();" linkedscene_lookat="129.14,13.72,161.04"  />
 
 	</scene>
 
@@ -441,7 +441,7 @@
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="144.577" atv="5.257" linkedscene="scene_12-1_pano_g4_reconstructed" onclick="scene_hotspot_mapping(spot1, 10);skin_hotspotstyle_click();" linkedscene_lookat="140,-4.14,167.0" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="42.493" atv="6.403" linkedscene="scene_14-1_pano_g5_reconstructed" onclick="scene_hotspot_mapping(spot2, 280);skin_hotspotstyle_click();"  linkedscene_lookat="-35.15,-4.14,167.0" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="-174.449" atv="5.369" linkedscene="scene_11-1_pano_g4_reconstructed" linkedscene_hoffset="0.0" use3dtransition="true" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-174.449" atv="5.369" linkedscene="scene_11-1_pano_g4_reconstructed"  onclick="scene_hotspot_mapping(spot3, 170);skin_hotspotstyle_click();" linkedscene_hoffset="0.0" />
 
 	</scene>
 	
@@ -465,7 +465,7 @@
 
 	<action name="scene_15-1-animation">
 		
-		lookto(-40, 0, 140, tween(easeinoutcubic, 4 ), true, true);
+		lookto(-40, 0, 140, tween(easeinoutcubic, 4 ), false, true);
 		
 
 	</action>
