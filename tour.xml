@@ -423,7 +423,7 @@
 
 	<action name="scene_13-1-animation">
 		
-		lookto(90, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(90, 0, 140, tween(easeinoutcubic, 4 ), true, false);
 		
 
 	</action>
@@ -488,7 +488,7 @@
 
 	<action name="scene_16-1-animation">
 		
-		lookto(-250, 20, 120, tween(easeinoutcubic, 4 ), true, true)
+		lookto(-250, 20, 120, tween(easeinoutcubic, 4 ), true, false);
 		
 
 	</action>
@@ -668,7 +668,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-157.708" atv="12.379" linkedscene="scene_24-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot1, 110);skin_hotspotstyle_click();"  linkedscene_lookat="387.38,10.45,163.1" />
-		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed" onclick="scene_hotspot_mapping(spot2, 90);skin_hotspotstyle_click();"  linkedscene_lookat="221.02,12.84,160.7" />
+		<hotspot name="spot2" style="skin_hotspotstyle_right" ath="30.711" atv="11.643" linkedscene="scene_26-1_pano_g8_reconstructed"  linkedscene_lookat="210.02,12.84,160.7" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-92.711" atv="6.643" linkedscene="scene_22-1_pano_g7_reconstructed" onclick="scene_hotspot_mapping(spot3, 180);skin_hotspotstyle_click();"  linkedscene_lookat="221.02,12.84,160.7" />
 
 	</scene>
@@ -691,7 +691,7 @@
 	</scene>
 	<action name="scene_27-1-animation">
 		
-		lookto(-120, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(-30, 0, 140, tween(easeinoutcubic, 4 ), true, true)
 
 </action>
 	<scene name="scene_27-1_Pano_G8_Reconstructed" title="27-1 Pano G8 Reconstructed" onstart="delayedcall(0.8, scene_27-1-animation();)" thumburl="panos/27-1_Pano_G8_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -766,7 +766,7 @@
 
 	<action name="scene_31-1-animation">
 		
-		lookto(50, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(170, 0, 140, tween(easeinoutcubic, 4 ), true, true)
 
 	</action>	
 	<scene name="scene_31-1_Pano_G9_Reconstructed" title="31-1 Pano G9 Reconstructed" onstart="delayedcall(0.8, scene_31-1-animation();)" thumburl="panos/31-1_Pano_G9_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -828,7 +828,7 @@
 
 	<action name="scene_34-1-animation">
 		
-		lookto(180, 0, 140, tween(easeinoutcubic, 4 ), true, true)
+		lookto(240, 0, 140, tween(easeinoutcubic, 4 ), true, true)
 
 	</action>
 	<scene name="scene_34-1_Pano_G10_Reconstructed_B2" title="34-1 Pano G10 Reconstructed B2" onstart="delayedcall(0.8, scene_34-1-animation();)" thumburl="panos/34-1_Pano_G10_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -879,7 +879,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle_left" ath="166.124" atv="10.282" onclick="scene_hotspot_mapping(spot1, -30);skin_hotspotstyle_click();"  linkedscene="scene_35-1_pano_g10_reconstructed_f" linkedscene_lookat="465.36,11.43,160.7" />
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="14.743" atv="3.836" onclick="scene_hotspot_mapping(spot2, -20);skin_hotspotstyle_click();"  linkedscene="scene_37-1_pano_g11_reconstructed_b2" linkedscene_lookat="2.8,20.27,149.21" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="14.743" atv="3.836" onclick="skin_hotspotstyle_click();"  linkedscene="scene_37-1_pano_g11_reconstructed_b2" linkedscene_lookat="2.8,10.27,149.21" />
 
 	</scene>
 
