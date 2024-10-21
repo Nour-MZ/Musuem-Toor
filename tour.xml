@@ -527,12 +527,12 @@
 
 	</scene>
 
-	<!-- <action name="scene_18-1-animation">
+	<action name="scene_18-1-animation">
 		
 		lookto(-130, 0, 140, tween(easeinoutcubic, 4 ), true, true)
 		
 
-	</action> -->
+	</action>
 	<scene name="scene_18-1_Pano_G6_Reconstructed" title="18-1 Pano G6 Reconstructed"  onstart="delayedcall(0.8, scene_18-1-animation();)" thumburl="panos/18-1_Pano_G6_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
@@ -711,7 +711,12 @@
 
 	</scene>
 
-	<scene name="scene_28-1_Pano_G8_Reconstructed_B2" title="28-1 Pano G8 Reconstructed B2" onstart="" thumburl="panos/28-1_Pano_G8_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<action name="scene_28-1-animation">
+		
+		lookto(-100, 0, 120, tween(easeinoutcubic, 4 ), true, true)
+
+</action>
+	<scene name="scene_28-1_Pano_G8_Reconstructed_B2" title="28-1 Pano G8 Reconstructed B2" onstart="delayedcall(0.8, scene_28-1-animation();)" thumburl="panos/28-1_Pano_G8_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
