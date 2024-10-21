@@ -221,11 +221,11 @@
 	</scene>
 
 
-	<!-- <action name="scene_03-1-animation">
+	<action name="scene_03-1-animation">
 		
 		lookto(-10, 0, 140, tween(easeinoutcubic, 4 ), true, true, set(view.distortion="0.35" hlookat, -10);)
 		
-	</action> -->
+	</action>
 
 	<scene name="scene_03-1_Pano_G2_Reconstructed_B2" title="03-1 Pano G2 Reconstructed B2" onstart="delayedcall(0.8,scene_03-1-animation();)" thumburl="panos/03-1_Pano_G2_Reconstructed_B2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
