@@ -95,7 +95,7 @@
 	
 	<contextmenu fullscreen="false" versioninfo="false" />
 
-	<action name="actioner" type="Javascript" ><![CDATA[
+	<action name="actioner" type="Javascript" autorun="onload" ><![CDATA[
 		console.log(krpano.actions);
 		function transformSceneString(sceneString) {
 			
