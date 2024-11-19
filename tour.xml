@@ -233,12 +233,12 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 		
-		<view distortion="0.35" hlookat="42.913" vlookat="1.319" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="120" limitview="auto" />
+		<view distortion="0.35" hlookat="42.913" vlookat="1.319" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="120" limitview="auto" />
 
 		<preview url="panos/01-1_Pano_G1_Reconstructed_B2.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/01-1_Pano_G1_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
+			<cube url="panos/01-1_Pano_G1_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" multiresthreshold="0.1" />
 		</image>
 
 		<hotspot name="spot1"  style="skin_hotspotstyle" ath="-160.758" atv="12.520" linkedscene="scene_38-1_pano_entrance_reconstructed" onclick="skin_hotspotstyle_click();" linkedscene_hoffset="0.0"  />
@@ -540,7 +540,7 @@
 	</scene>
 
 	
-	<!-- <scene name="scene_13-1_Pano_G4_Reconstructed" title="13-1 Pano G4 Reconstructed" onstart="delayedcall(0.8, scene_13-1-animation();)"  thumburl="panos/13-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_13-1_Pano_G4_Reconstructed" title="13-1 Pano G4 Reconstructed" onstart="delayedcall(0.8, scene_13-1-animation();)"  thumburl="panos/13-1_Pano_G4_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -556,7 +556,7 @@
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="42.493" atv="6.403" linkedscene="scene_14-1_pano_g5_reconstructed" onclick="scene_hotspot_mapping(spot2, 280);skin_hotspotstyle_click();"  linkedscene_lookat="-35.15,-4.14,167.0" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-174.449" atv="5.369" linkedscene="scene_11-1_pano_g4_reconstructed"  onclick="scene_hotspot_mapping(spot3, 170);skin_hotspotstyle_click();" linkedscene_hoffset="0.0" />
 
-	</scene> -->
+	</scene>
 	
 
 	<scene name="scene_14-1_Pano_G5_Reconstructed" title="14-1 Pano G5 Reconstructed" onstart="" thumburl="panos/14-1_Pano_G5_Reconstructed.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
