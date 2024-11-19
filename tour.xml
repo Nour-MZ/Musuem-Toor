@@ -385,7 +385,7 @@
 		</image>
 
 		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="-61.634" atv="9.889" linkedscene="scene_05-1_pano_g2_reconstructed_b2" onclick="scene_hotspot_mapping(spot1, 150); skin_hotspotstyle_click();" linkedscene_lookat="-3.38,-1.05,158.81"  />
-		<hotspot name="spot2" style="skin_hotspotstyle_left" ath="124.702" atv="8.910" linkedscene="scene_07-1_pano_g3_reconstructed_b2" onclick=" skin_hotspotstyle_click();" linkedscene_lookat="-10,-1.05,158.81" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="119.702" atv="8.910" linkedscene="scene_07-1_pano_g3_reconstructed_b2" onclick=" skin_hotspotstyle_click();" linkedscene_lookat="-10,-1.05,158.81" />
 		
 
 	</scene>
@@ -409,7 +409,7 @@
 			<cube url="panos/07-1_Pano_G3_Reconstructed_B2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,4096" />
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle_right" ath="123.855" atv="9.924" linkedscene="scene_06-1_pano_g3_reconstructed" onclick="scene_hotspot_mapping(spot1, 180); skin_hotspotstyle_click();"  linkedscene_lookat="294.95,4.98,140.95" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="128.855" atv="9.924" linkedscene="scene_06-1_pano_g3_reconstructed" onclick="scene_hotspot_mapping(spot1, 180); skin_hotspotstyle_click();"  linkedscene_lookat="294.95,4.98,140.95" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="88.994" atv="9.147" linkedscene="scene_09-1_pano_g3_reconstructed_b2" onclick="scene_hotspot_mapping(spot2, 0); skin_hotspotstyle_click();"  linkedscene_lookat="76.04,-5.34,165.01" />
 
 	</scene>
@@ -930,7 +930,7 @@
 
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="-141.008" atv="15.720" onclick="scene_hotspot_mapping(spot1, 270);skin_hotspotstyle_click();"  linkedscene="scene_29-1_pano_g8_reconstructed_b2" linkedscene_lookat="-87.54,1.64,163.55" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="68.773" atv="4.647" onclick="scene_hotspot_mapping(spot2, 140);skin_hotspotstyle_click();"  linkedscene="scene_31-1_pano_g9_reconstructed" linkedscene_lookat="NaN,NaN,120.0" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="-252.476" atv="3.500" onclick="scene_hotspot_mapping(spot1, -10);skin_hotspotstyle_click();"  linkedscene="scene_31-2_pano_g9_reconstructed" linkedscene_lookat="46.95,6.42,136.56" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-252.476" atv="3.500" onclick="skin_hotspotstyle_click();"  linkedscene="scene_31-2_pano_g9_reconstructed" linkedscene_lookat="180.95,6.42,136.56" />
 
 	</scene>
 
